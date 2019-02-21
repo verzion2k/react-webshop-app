@@ -11,7 +11,8 @@ class Webshop extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      card: this.pushDataToCard()
+      card: this.pushDataToCard(),
+      selectedProductIndex: []
     };
   }
 
@@ -23,16 +24,22 @@ class Webshop extends Component {
         name: faker.name.findName(),
         price: faker.finance.amount()
       });
+      console.log(newArr[i]);
     }
     return newArr;
   };
+
+  pushSelectedProductIndex = i => {};
 
   render() {
     return (
       <Container fluid>
         <Row>
           <Col className="col--left">
-            <WebshopItemList cardData={this.state.card} />
+            <WebshopItemList
+              cardData={this.state.card}
+              selectedProductIndex={this.pushSelectedProductIndex}
+            />
           </Col>
           <Col className="col--right">
             <WebshopCart />
