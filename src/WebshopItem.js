@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import "./WebshopItem.scss";
 
 class WebshopItem extends Component {
+  pushToCart = i => {};
+
   render() {
     const { image, name, price } = this.props;
     return (
@@ -13,7 +15,7 @@ class WebshopItem extends Component {
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{price} $</Card.Text>
-            <Button variant="primary" onClick={this.newCardItems}>
+            <Button variant="primary" onClick={this.pushToCart}>
               Add to cart
             </Button>
           </Card.Body>

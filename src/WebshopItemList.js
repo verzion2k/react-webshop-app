@@ -7,7 +7,12 @@ import Row from "react-bootstrap/Row";
 class WebshopItemList extends Component {
   render() {
     const cardList = this.props.cardData.map((data, index) => (
-      <WebshopItem card={this.props.cardData} key={index} {...data} />
+      <WebshopItem
+        key={index}
+        {...data}
+        arrayIndex={index}
+        selectedProductIndex={this.props.pushSelectedProductIndex}
+      />
     ));
     return (
       <>
