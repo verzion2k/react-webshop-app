@@ -30,14 +30,9 @@ class Webshop extends Component {
 
   pushToCart = i => {
     if (this.state.selectedProductIndex.includes(i) === false) {
-      this.setState(
-        prevState => ({
-          selectedProductIndex: [...prevState.selectedProductIndex, i]
-        }),
-        () => {
-          console.log(this.state.selectedProductIndex);
-        }
-      );
+      this.setState(prevState => ({
+        selectedProductIndex: [...prevState.selectedProductIndex, i]
+      }));
     } else {
       console.log("This index is already added into the array");
     }
@@ -60,14 +55,9 @@ class Webshop extends Component {
 
     products.splice(products.indexOf(i), 1);
 
-    this.setState(
-      {
-        selectedProductIndex: products
-      },
-      () => {
-        console.log(this.state.selectedProductIndex);
-      }
-    );
+    this.setState({
+      selectedProductIndex: products
+    });
   };
 
   render() {

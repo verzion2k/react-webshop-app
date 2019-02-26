@@ -8,14 +8,26 @@ class WebshopCartItems extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.totalPrice(
+      this.props.cartElement.price * this.state.quantity,
+      this.props.cartIndex
+    );
+  }
+
   handleOnChange = e => {
-    this.props.totalPrice();
+    this.props.totalPrice(
+      this.props.cartElement.price * e.target.value,
+      this.props.cartIndex
+    );
+
     this.setState({
       quantity: e.target.value
     });
   };
 
   removeProductRow = () => {
+    this.props.removeFromTotal(this.props.cartElement.index);
     this.props.removeProduct(this.props.cartElement.index);
   };
 
